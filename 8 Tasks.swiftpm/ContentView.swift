@@ -18,7 +18,7 @@ struct ContentView: View {
     @FocusState private var focusedTask: Task?
     var body: some View {
         VStack {
-            ForEach($state.tasks) { $task in
+            List($state.tasks, editActions: .all) { $task in
                 TextField("", text: $task.title,
                           prompt: Text("Enter your task title")
                                       .foregroundStyle(.gray)
