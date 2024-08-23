@@ -19,7 +19,10 @@ struct ContentView: View {
     var body: some View {
         VStack {
             ForEach($state.tasks) { $task in
-                TextField("", text: $task.title)
+                TextField("", text: $task.title,
+                          prompt: Text("Enter your task title")
+                                      .foregroundStyle(.gray)
+                                      .italic())
                     .onSubmit {
                         newTask(after: task)
                     }
